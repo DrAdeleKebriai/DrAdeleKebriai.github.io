@@ -23,7 +23,6 @@ body{
     justify-content:center;
     align-items:center;
 }
-
 .card{
     width:90%;
     max-width:420px;
@@ -32,9 +31,14 @@ body{
     padding:35px 25px;
     text-align:center;
     box-shadow:0 15px 40px rgba(0,0,0,0.12);
-    backdrop-filter:blur(10px);
+    transition:0.45s ease;
 }
 
+.card.hide{
+    opacity:0;
+    transform:translateX(-100%);
+    pointer-events:none;
+}
 
 h1{
     margin-top:25px;
@@ -80,6 +84,7 @@ h1{
 }
 
 .text-card{
+.text-card{
     position:fixed;
     top:50%;
     left:50%;
@@ -95,23 +100,15 @@ h1{
 
     opacity:0;
     transform:translate(-150%,-50%);
-    transition:all .45s ease;
-
+    transition:0.45s ease;
     pointer-events:none;
 }
-    
+
 .text-card.show{
     opacity:1;
     transform:translate(-50%,-50%);
     pointer-events:auto;
-    z-index:10;
-}
-
-.card.hide{
-    opacity:0;
-    transform:translateX(-120%);
-    pointer-events:none;
-    position:absolute;
+    z-index:20;
 }
 
 .profile{
@@ -215,28 +212,25 @@ function showCard(title,text){
 
     document.querySelector(".card").classList.add("hide");
 
-    let card = document.getElementById("textCard");
-    card.classList.add("show");
-
     document.getElementById("textTitle").innerHTML = title;
     document.getElementById("textContent").innerHTML = text;
 
+    setTimeout(function(){
+        document.getElementById("textCard").classList.add("show");
+    },100);
+
 }
+
 
 function closeCard(){
 
-    let textCard = document.getElementById("textCard");
-    let mainCard = document.querySelector(".card");
-
-    textCard.classList.remove("show");
+    document.getElementById("textCard").classList.remove("show");
 
     setTimeout(function(){
-
-        mainCard.classList.remove("hide");
-
+        document.querySelector(".card").classList.remove("hide");
     },450);
 
-}    
+}
 
 
 </script>

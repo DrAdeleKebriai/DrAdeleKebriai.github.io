@@ -61,9 +61,9 @@ h1{
 .button{
     display:block;
     text-decoration:none;
-    color:#548;
+    color:#222;
     background:#3b6064;
-    border:2px solid #ffd166;
+    border:2px solid #ace7ff;
     margin:14px 0;
     padding:15px;
     border-radius:35px;
@@ -78,6 +78,37 @@ h1{
     background:#fff8dc;
 }
 
+ .text-card{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    background:#c9e4ca;
+    border-radius:35px;
+    padding:35px 25px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+
+    opacity:0;
+    transform:translateX(100%);
+    transition:all .45s ease;
+    pointer-events:none;
+}
+
+.text-card.show{
+    opacity:1;
+    transform:translateX(0);
+    pointer-events:auto;
+}
+
+.card{
+    transition:all .45s ease;
+}
+
+.card.hide{
+    opacity:0;
+    transform:translateX(-100%);
+    pointer-events:none;
+}   
 
 .profile{
     width:70px;
@@ -85,7 +116,7 @@ h1{
     border-radius:50%;
     overflow:hidden;
     margin:auto;
-    border:1px solid #ffd166;
+    border:1px solid #ace7ff;
     background:#fff;
 }
 
@@ -127,8 +158,9 @@ h1{
     
 </div>
 
-<a class="button" href="#">
-  مراقبت‌های پس از عصب‌کشی و روکش
+<a class="button"
+onclick="showCard('عنوان مطلب','اینجا متن کامل مطلب قرار می‌گیرد...');return false;">
+دکمه
 </a>
 
 <a class="button" href="#">

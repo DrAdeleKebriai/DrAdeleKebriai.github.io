@@ -196,6 +196,33 @@ Digital Business Card powered by TheOzCo.
 
 
 </div>
+<script>
 
+function showCard(title, text){
+
+    // مخفی کردن کارت اصلی
+    document.querySelector(".card").classList.add("hide");
+
+    // نمایش کارت متن
+    document.getElementById("textCard").classList.add("show");
+
+    // قرار دادن عنوان و متن
+    document.getElementById("textTitle").innerHTML = title;
+    document.getElementById("textContent").innerHTML = text;
+
+}
+
+
+function closeCard(){
+
+    // بستن کارت متن
+    document.getElementById("textCard").classList.remove("show");
+
+    // برگرداندن کارت اصلی
+    document.querySelector(".card").classList.remove("hide");
+
+}
+
+</script>
 </body>
   </html>

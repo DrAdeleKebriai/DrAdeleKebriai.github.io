@@ -99,19 +99,19 @@ h1{
 
     pointer-events:none;
 }
-
+    
 .text-card.show{
     opacity:1;
     transform:translate(-50%,-50%);
     pointer-events:auto;
+    z-index:10;
 }
-.card{
-    transition:all .45s ease;
-}
+
 .card.hide{
     opacity:0;
     transform:translateX(-120%);
     pointer-events:none;
+    position:absolute;
 }
 
 .profile{
@@ -223,14 +223,21 @@ function showCard(title,text){
 
 }
 
-
 function closeCard(){
 
-    document.getElementById("textCard").classList.remove("show");
+    let textCard = document.getElementById("textCard");
+    let mainCard = document.querySelector(".card");
 
-    document.querySelector(".card").classList.remove("hide");
+    textCard.classList.remove("show");
 
-}
+    setTimeout(function(){
+
+        mainCard.classList.remove("hide");
+
+    },450);
+
+}    
+
 
 </script>
 </body>

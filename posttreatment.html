@@ -1,274 +1,208 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>  <html lang="fa" dir="rtl">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  <title> 🦷🪥دکتر عادله کبریایی</title>  <style>  
+  
+*{  
+    box-sizing:border-box;  
+    font-family:Tahoma, Arial, sans-serif;  
+}  
+body{  
+    overflow:hidden;  
+    margin:0;  
+    min-height:100vh;  
+    background:  
+    radial-gradient(circle at top left,#fff3b0,transparent 30%),  
+    radial-gradient(circle at bottom right,#ffd6e7,transparent 35%),  
+    linear-gradient(135deg,#dff6ff,#ffffff,#e8fff0);  
+    display:flex;  
+    justify-content:center;  
+    align-items:center;  
+}  
+.card{  
+    width:100%;  
+    max-width:420px;  
+    background:#c9e4ca;  
+    border-radius:35px;  
+    padding:35px 25px;  
+    text-align:center;  
+    box-shadow:0 15px 40px rgba(0,0,0,0.12);  
+    transition:0.45s ease;  
+}  
+  
+  
+h1{  
+    margin-top:25px;  
+    margin-bottom:8px;  
+    color:#222;  
+    font-size:25px;  
+}  
+  
+  
+      
+.title{  
+    color:#8b6b2d;  
+    font-size:18px;  
+    margin-bottom:10px;  
+}  
+  
+  
+.code{  
+    color:#555;  
+    font-size:15px;  
+    margin-bottom:30px;  
+}  
+  
+  
+.button{  
+    display:block;  
+    text-decoration:none;  
+    color:#222;  
+    background:#3b6064;  
+    border:2px solid #ace7ff;  
+    margin:14px 0;  
+    padding:15px;  
+    border-radius:35px;  
+    transition:0.3s;  
+    font-size:17px;  
+    font-weight:bold;  
+    box-shadow:0 6px 15px rgba(0,0,0,0.08);  
+}  
+  
+.button:hover{  
+    transform:scale(1.03);  
+    background:#fff8dc;  
+}  
+  
+.container{  
+    position:relative;  
+    width:90%;  
+    max-width:420px;  
+}  
+      
+  
+.text-card{  
+    position:absolute;  
+    top:0;  
+    left:0;  
+    width:100%;  
+    max-height:85vh;  
+    overflow-y:auto;  
+  
+    background:#c9e4ca;  
+    border-radius:35px;  
+    padding:35px 25px;  
+  
+    opacity:0;  
+    transform:translateX(100%);  
+    transition:.45s ease;  
+    pointer-events:none;  
+}  
+  
+  
+.text-card.show{  
+    opacity:1;  
+    transform:translateX(0);  
+    pointer-events:auto;  
+}  
+  
+.card.hide{  
+    opacity:0;  
+    transform:translateX(-100%);  
+    pointer-events:none;  
+    }  
+.profile{  
+    width:70px;  
+    height:65px;  
+    border-radius:50%;  
+    overflow:hidden;  
+    margin:auto;  
+    border:1px solid #ace7ff;  
+    background:#fff;  
+}  
+  
+  
+.profile img{  
+    width:100%;  
+    height:100%;  
+    object-fit:cover;  
+}  
+  
+.footer{  
+    margin-top:25px;  
+    font-size:12px;  
+    color:#777;  
+}  
+  
+</style>  </head>  <body>  <div class="container">  
+<div id="textCard" class="text-card">  <h2 id="textTitle"></h2>  
 
-<title>🦷🪥دکتر عادله کبریایی</title>
+<div id="textContent"></div>  
 
-<style>
-
-*{
-    box-sizing:border-box;
-    font-family:Tahoma, Arial, sans-serif;
-}
-
-body{
-    margin:0;
-    min-height:100vh;
-    background:
-    radial-gradient(circle at top left,#fff3b0,transparent 30%),
-    radial-gradient(circle at bottom right,#ffd6e7,transparent 35%),
-    linear-gradient(135deg,#dff6ff,#ffffff,#e8fff0);
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-
-.container{
-    position:relative;
-    width:90%;
-    max-width:420px;
-}
-
-
-.card{
-    width:100%;
-    background:#c9e4ca;
-    border-radius:35px;
-    padding:35px 25px;
-    text-align:center;
-    box-shadow:0 15px 40px rgba(0,0,0,.12);
-    transition:.45s ease;
-}
-
-
-.card.hide{
-    opacity:0;
-    transform:translateX(-100%);
-    pointer-events:none;
-}
-
-
-h1{
-    margin-top:25px;
-    margin-bottom:8px;
-    color:#222;
-    font-size:25px;
-}
-
-
-.button{
-    display:block;
-    text-decoration:none;
-    color:#222;
-    background:#3b6064;
-    border:2px solid #ace7ff;
-    margin:14px 0;
-    padding:15px;
-    border-radius:35px;
-    transition:.3s;
-    font-size:17px;
-    font-weight:bold;
-}
-
-
-.button:hover{
-    transform:scale(1.03);
-    background:#fff8dc;
-}
-
-
-.text-card{
-    position:absolute;
-    top:0;
-    left:0;
-
-    width:100%;
-    max-height:85vh;
-    overflow-y:auto;
-
-    background:#c9e4ca;
-    border-radius:35px;
-    padding:35px 25px;
-
-    box-shadow:0 15px 40px rgba(0,0,0,.12);
-
-    opacity:0;
-    transform:translateX(100%);
-
-    transition:.45s ease;
-
-    pointer-events:none;
-}
-
-
-.text-card.show{
-    opacity:1;
-    transform:translateX(0);
-    pointer-events:auto;
-}
-
-
-#textTitle{
-    font-size:22px;
-    margin-bottom:20px;
-}
-
-
-#textContent{
-    text-align:right;
-    line-height:2;
-    font-size:16px;
-}
-
-
-.profile{
-    width:70px;
-    height:65px;
-    border-radius:50%;
-    overflow:hidden;
-    margin:auto;
-    border:1px solid #ace7ff;
-}
-
-
-.profile img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-
-.footer{
-    margin-top:25px;
-    font-size:12px;
-    color:#777;
-}
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<div class="container">
-
-
-<div class="card">
-
-
-<h1>
-👩🏻‍⚕️دکتر عادله کبریایی👩🏻‍🚀
-</h1>
-<div class="title">
-</div>
-
-
-<div class="code">
-</div>
-
-
-<a class="button"
-onclick="showCard('مراقبت‌های پس از عصب‌کشی و روکش','🔴 تا نیم ساعت پس از درمان کودک از خوردن و آشامیدن و شستن دهان پرهیز کند.<br><br>🔴 برای جلوگیری از زخم شدن لب تا از بین رفتن تاثیر بی حسی خصوصاً در فک پایین (دو ساعت پس از درمان) از خوردن غذاهای جویدنی پرهیز شود و کودک در این زمان تحت نظارت والدین باشد.<br><br>🔴 کودک از خاراندن و جویدن ناحیه بی‌حس شده خودداری کند.<br><br>🔴 کودک تا دو روز پس از درمان از خوردن خوراکی‌های چسبناک مانند انواع کام، شکلات، پاستیل، آدامس، لواشک و ... خودداری کند.<br><br>🔴 در صورت شکایت کودک از درد، برای تطابق بهتر و سریع‌تر روکش با لثه و کاهش التهاب؛ لثه دندان درمان شده روزی دوبار با گوش پاک‌کن و دهانشویه کلرهگزیدین ماساژ داده شود.<br><br>🔴 رعایت بهداشت جهت کاهش التهاب و سلامت لثه اطراف دندان درمان شده ضروری است.<br><br>🔴 درد با شدت کم و التهاب لثه تا دو الی سه روز پس از درمان طبیعی است.');return false;">
-مراقبت‌های پس از عصب‌کشی و روکش
+<a class="button" href="#" onclick="closeCard(); return false;">  
+    🔙 بازگشت  
 </a>
 
-
-<a class="button"
+</div>  
+<div class="card"></div>  
+</div>  
+<h1>  
+👩🏻‍⚕️دکتر عادله کبریایی👩🏻‍🚀  
+</h1>  <div class="title">  
+</div>  <div class="code">  </div>  
+<a class="button"  
+onclick="showCard('مراقبت‌های پس از عصب‌کشی و روکش','🔴 تا نیم ساعت پس از درمان کودک از خوردن و آشامیدن و شستن دهان پرهیز کند.<br><br>🔴 برای جلوگیری از زخم شدن لب تا از بین رفتن تاثیر بی حسی خصوصاً در فک پایین (دو ساعت پس از درمان) از خوردن غذاهای جویدنی پرهیز شود و کودک در این زمان تحت نظارت والدین باشد.<br><br>🔴 کودک از خاراندن و جویدن ناحیه بی‌حس شده خودداری کند.<br><br>🔴 کودک تا دو روز پس از درمان از خوردن خوراکی‌های چسبناک مانند انواع کام، شکلات، پاستیل، آدامس، لواشک و ... خودداری کند.<br><br>🔴 در صورت شکایت کودک از درد، برای تطابق بهتر و سریع‌تر روکش با لثه و کاهش التهاب؛ لثه دندان درمان شده روزی دوبار با گوش پاک‌کن و دهانشویه کلرهگزیدین ماساژ داده شود.<br><br>🔴 رعایت بهداشت جهت کاهش التهاب و سلامت لثه اطراف دندان درمان شده ضروری است.<br><br>🔴 درد با شدت کم و التهاب لثه تا دو الی سه روز پس از درمان طبیعی است.');return false;">  
+مراقبت‌های پس از عصب‌کشی و روکش  
+</a>  <a class="button"  
 onclick="showCard('مراقبت‌های پس از ترمیم دندان','🔴 برای جلوگیری از زخم شدن لب تا از بین رفتن تاثیر بی حسی خصوصاً در فک پایین (دو ساعت پس از درمان) از خوردن غذاهای جویدنی پرهیز شود و کودک در این زمان تحت نظارت والدین باشد.<br><br>🔴 کودک از خاراندن و جویدن ناحیه بی‌حس شده خودداری کند.<br><br>🔴 تا یک ساعت پس از درمان از مصرف غذاهای جویدنی خودداری شود.<br><br>🔴 کودک تا دو روز پس از درمان از خوردن خوراکی‌های چسبناک مانند انواع کام، شکلات، پاستیل، آدامس، لواشک و ... خودداری کند.');return false;">
 مراقبت‌های پس از ترمیم دندان
 </a>
 
-
-<a class="button"
-onclick="showCard('مراقبت‌های پس از کشیدن دندان','🔴 برای جلوگیری از خونریزی کودک گاز را در ناحیه مربوطه تا نیم ساعت فشار دهد.<br><br>🔴 تا دو ساعت پس از درمان از تف کردن آب دهان پرهیز شود.<br><br>🔴 یک ساعت پس از کشیدن دندان بستنی یا نوشیدنی خنک مصرف شود.<br><br>🔴 تا ۲۴ ساعت پس از کشیدن از خوردن غذاهای داغ و سفت خودداری شود.<br><br>🔴 تا ۲۴ ساعت پس از درمان از نوشیدن نوشیدنی با نی خودداری شود.<br><br>🔴 برای جلوگیری از زخم شدن لب تا از بین رفتن تاثیر بی حسی خصوصاً در فک پایین (دو ساعت پس از درمان) از خوردن غذاهای جویدنی پرهیز شود و کودک در این زمان تحت نظارت والدین باشد.<br><br>🔴 کودک از خاراندن و جویدن ناحیه بی‌حس شده خودداری کند.');return false;">
+<a class="button"  
+onclick="showCard('مراقبت‌های پس از کشیدن دندان','🔴 برای جلوگیری از خونریزی کودک گاز را در ناحیه مربوطه تا نیم ساعت فشار دهد.<br><br>🔴 تا دو ساعت پس از درمان از تف کردن آب دهان پرهیز شود.<br><br>🔴 یک ساعت پس از کشیدن دندان بستنی یا نوشیدنی خنک مصرف شود.<br><br>🔴 تا ۲۴ ساعت پس از کشیدن از خوردن غذاهای داغ و سفت خودداری شود.<br><br>🔴 تا ۲۴ ساعت پس از درمان از نوشیدن نوشیدنی با «نی» خودداری شود.<br><br>🔴 برای جلوگیری از زخم شدن لب تا از بین رفتن تاثیر بی حسی خصوصاً در فک پایین (دو ساعت پس از درمان) از خوردن غذاهای جویدنی پرهیز شود و کودک در این زمان تحت نظارت والدین باشد.<br><br>🔴 کودک از خاراندن و جویدن ناحیه بی‌حس شده خودداری کند.');return false;">
 مراقبت‌های پس از کشیدن دندان
 </a>
 
-
-<a class="button"
+<a class="button"  
 onclick="showCard('مراقبت‌های پس از فلوراید تراپی','🔴 تا حد امکان تا ده دقیقه پس از درمان کودک از قورت دادن آب دهان خودداری کرده و آب دهان را تخلیه کند.<br><br>🔴 جهت اثرگذاری بهتر تا یک ساعت پس از درمان از خوردن و آشامیدن و شستن دهان پرهیز شود.<br><br>🔴 یک ساعت پس از درمان کودک یک لیوان شیر میل کند.<br><br>🔴 جهت تاثیر بیشتر از کندن ژل فلوراید از روی دندان پرهیز شود.<br><br>🔴 کودک پس از فلوراید تراپی استثناً در آن شب مسواک نزند.');return false;">
 مراقبت‌های پس از فلوراید تراپی
 </a>
 
-
-<a class="button"
+<a class="button"  
 onclick="showCard('مراقبت‌های پس از فضانگهدار','🔴 هر سه ماه یکبار جهت چک‌آپ سلامت و وضعیت فضانگهدار مراجعه شود.<br><br>🔴 کودک از شکستن تنقلات و خوردن غذاهای سفت با فضانگهدار خودداری کند.<br><br>🔴 کودک از دستکاری فضانگهدار با ناخن یا مداد و وسایل مشابه خودداری کند.<br><br>🔴 کودک تا دو روز پس از درمان از خوردن خوراکی‌های چسبناک مانند انواع کام، شکلات، پاستیل، آدامس، لواشک و ... خودداری کند.<br><br>🔴 جهت جلوگیری از التهاب لثه و تجمع پلاک، رعایت بهداشت در اطراف فضانگهدار ضروری است.<br><br>🔴 در صورت مشاهده نوک زدن دندان در فضای مربوطه جهت خارج کردن فضانگهدار مراجعه شود.');return false;">
 مراقبت‌های پس از فضانگهدار
 </a>
 
+<a class="button" href="index.html">  
+  بازگشت  
+</a>  <div class="profile">  
+    <img src="Logo.png" alt="دکتر عادله کبریایی">  
+</div>  <div class="footer">  
+Digital Business Card powered by TheOzCo.  
+</div>  </div>  
+<script>  function showCard(title,text){
 
-<div class="profile">
-<img src="Logo.png">
-</div>
+document.querySelector(".card").classList.add("hide");  
 
+document.getElementById("textTitle").innerHTML = title;  
+document.getElementById("textContent").innerHTML = text;  
 
-<div class="footer">
-Digital Business Card powered by TheOzCo.
-</div>
-
-
-</div>
-
-
-<!-- کارت متن -->
-
-<div id="textCard" class="text-card">
-
-<h2 id="textTitle"></h2>
-
-<div id="textContent"></div>
-
-
-<a class="button" href="#" onclick="closeCard();return false;">
-🔙 بازگشت
-</a>
-
-
-</div>
-
-
-</div>
-
-
-
-<script>
-
-function showCard(title,text){
-
-    document.querySelector(".card").classList.add("hide");
-
-    document.getElementById("textTitle").innerHTML=title;
-
-    document.getElementById("textContent").innerHTML=text;
-
-
-    document.getElementById("textCard").classList.add("show");
+setTimeout(function(){  
+    document.getElementById("textCard").classList.add("show");  
+},100);
 
 }
-
-
 
 function closeCard(){
 
-    document.getElementById("textCard").classList.remove("show");
+document.getElementById("textCard").classList.remove("show");  
 
-
-    setTimeout(function(){
-
-        document.querySelector(".card").classList.remove("hide");
-
-    },450);
+setTimeout(function(){  
+    document.querySelector(".card").classList.remove("hide");  
+},450);
 
 }
 
-</script>
-
-
-</body>
-</html>
+</script>  
+</body>  
+  </html>

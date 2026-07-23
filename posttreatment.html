@@ -13,6 +13,7 @@
     font-family:Tahoma, Arial, sans-serif;
 }
 body{
+    overflow:hidden;
     margin:0;
     min-height:100vh;
     background:
@@ -24,7 +25,7 @@ body{
     align-items:center;
 }
 .card{
-    width:90%;
+    width:100%;
     max-width:420px;
     background:#c9e4ca;
     border-radius:35px;
@@ -78,31 +79,36 @@ h1{
     background:#fff8dc;
 }
 
-.text-card{
-    position:fixed;
-    top:50%;
-    left:50%;
+.container{
+    position:relative;
     width:90%;
     max-width:420px;
+}
+    
+
+.text-card{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
     max-height:85vh;
     overflow-y:auto;
 
     background:#c9e4ca;
     border-radius:35px;
     padding:35px 25px;
-    box-shadow:0 15px 40px rgba(0,0,0,.12);
 
     opacity:0;
-    transform:translate(-150%,-50%);
-    transition:0.45s ease;
+    transform:translateX(100%);
+    transition:.45s ease;
     pointer-events:none;
 }
 
+
 .text-card.show{
     opacity:1;
-    transform:translate(-50%,-50%);
+    transform:translateX(0);
     pointer-events:auto;
-    z-index:20;
 }
 
 .card.hide{
@@ -140,7 +146,7 @@ h1{
 
 <body>
 
-
+<div class="container">
 <div id="textCard" class="text-card">
 
     <h2 id="textTitle"></h2>
@@ -152,7 +158,8 @@ h1{
     </a>
 
 </div>
-<div class="card">
+<div class="card"></div>
+</div>
 <h1>
 👩🏻‍⚕️دکتر عادله کبریایی👩🏻‍🚀
 </h1>

@@ -34,11 +34,6 @@ body{
     transition:0.45s ease;
 }
 
-.card.hide{
-    opacity:0;
-    transform:translateX(-100%);
-    pointer-events:none;
-}
 
 h1{
     margin-top:25px;
@@ -84,7 +79,6 @@ h1{
 }
 
 .text-card{
-.text-card{
     position:fixed;
     top:50%;
     left:50%;
@@ -111,6 +105,11 @@ h1{
     z-index:20;
 }
 
+.card.hide{
+    opacity:0;
+    transform:translateX(-100%);
+    pointer-events:none;
+    }
 .profile{
     width:70px;
     height:65px;

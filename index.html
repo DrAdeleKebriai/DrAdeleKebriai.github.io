@@ -174,24 +174,31 @@
     color: var(--ink-soft);
   }
 
-  /* استایل بخش اکشن سفارشی جدید */
-  .custom-action-section {
-    padding: 6px 20px 6px;
+  /* سکشن اختصاصی بازی */
+  .game-section {
+    padding: 10px 20px 0;
   }
-  .custom-action-item {
+  .game-item {
     display:flex;
     align-items:center;
-    gap:12px;
+    justify-content:center;
+    gap:10px;
     padding: 14px 16px;
     border-radius: 16px;
     background: #ffffff;
     border: 1px solid var(--line);
     text-decoration:none;
     color: var(--ink);
+    font-weight: 700;
+    font-size: 15px;
     transition: border-color .2s ease, transform .2s ease;
   }
-  .custom-action-item:active { transform: scale(0.97); }
-  .custom-action-item:hover { border-color: var(--coral); }
+  .game-item:active { transform: scale(0.97); }
+  .game-item:hover { border-color: var(--coral); }
+  .game-icon {
+    font-size: 20px;
+    line-height: 1;
+  }
 
   .divider{
     display:flex;
@@ -244,9 +251,9 @@
     border-radius:9px;
     display:flex; align-items:center; justify-content:center;
     background: var(--coral-soft);
-    color: var(--coral-deep);
+    font-size: 18px;
+    line-height: 1;
   }
-  .care-icon svg{ width:17px; height:17px; }
 
   .care-title{
     font-size:12.5px;
@@ -367,9 +374,8 @@
     border-radius:16px;
     display:flex; align-items:center; justify-content:center;
     background: var(--coral-soft);
-    color: var(--coral-deep);
+    font-size: 28px;
   }
-  .modal-icon svg{ width:28px; height:28px; }
 
   .modal-title{
     font-family:'Lalezar', sans-serif;
@@ -471,19 +477,12 @@
 
   </div>
 
-  <!-- سکشن جدید پس از کانتکت‌ها -->
-  <div class="custom-action-section">
-    <a class="custom-action-item" href="https://example.com" target="_blank">
-      <span class="contact-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-        </svg>
-      </span>
-      <span class="contact-text">
-        <span class="contact-label">لینک دلخواه</span>
-        <span class="contact-value">نوبت‌دهی آنلاین / وب‌سایت</span>
-      </span>
+  <!-- سکشن جداگانه بازی کنیم -->
+  <div class="game-section">
+    <!-- آدرس href زیر را با لینک بازی خود جایگزین کنید -->
+    <a class="game-item" href="https://your-game-link.com" target="_blank">
+      <span class="game-icon">🎮</span>
+      <span>بازی کنیم</span>
     </a>
   </div>
 
@@ -548,9 +547,6 @@ const careInstructions = [
   }
 ];
 
-// آیکون دندان یکسان برای تمامی آیپم‌ها
-const toothIconSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5c-2.1 0-3.3 1-4.3 1-1.3 0-2.1 1.1-2.1 2.8 0 3-1.3 7.8-2.5 9.2-.6.7-1.1.9-1.5.2-.4-.7-.6-3.5-1.4-3.5H8.7c-.8 0-1 2.8-1.4 3.5" /></svg>';
-
 const grid = document.getElementById('careGrid');
 const backdrop = document.getElementById('modalBackdrop');
 const modalIcon = document.getElementById('modalIcon');
@@ -559,7 +555,7 @@ const modalBody = document.getElementById('modalBody');
 const modalClose = document.getElementById('modalClose');
 
 function openModal(item){
-  modalIcon.innerHTML = toothIconSvg;
+  modalIcon.textContent = '🦷';
   modalTitle.textContent = item.title;
   modalBody.textContent = item.text;
   backdrop.classList.add('open');
@@ -575,7 +571,7 @@ careInstructions.forEach(item => {
   const btn = document.createElement('button');
   btn.className = 'care-trigger' + (item.center ? ' center' : '');
   btn.innerHTML = `
-    <span class="care-icon">${toothIconSvg}</span>
+    <span class="care-icon">🦷</span>
     <span class="care-title">${item.title}</span>
   `;
   btn.addEventListener('click', () => openModal(item));
